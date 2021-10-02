@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static%}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>export2</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/back-to-top-scroll-1.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/back-to-top-scroll.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/Bold-BS4-Animated-Back-To-Top.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/cards.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Dark.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/Pretty-Registration-Form.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/Sidebar-Menu-1.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/Sidebar-Menu.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+    {% if title %}
+    <title>buggsbunny-{{title}}</title>
+    {% else %}
+    <title>buggsbunny</title>
+    {% endif %}
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-primary">
+        <div class="container-fluid"><img src="assets/img/mainicon.png" width="30px" height="30px" alt="10px"><a
+                class="navbar-brand text-center" href="#" style="margin: 0px 0px;">HOSPITAL SYSTEM</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav text-light ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href={% url 'homepage' %}>HOME</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href={% url 'aboutpage' %}>ABOUT</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href={% url 'loginpage' %}>LOGIN</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href= {% url 'createaccountpage' %}>CREATE ACCOUNT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/back-to-top-scroll.js'%}"></script>
+    <script src="{% static 'assets/js/Bold-BS4-Animated-Back-To-Top.js'%}"></script>
+    <script src="{% static 'assets/js/bs-init.js'%}"></script>
+    <script src="{% static 'assets/js/Sidebar-Menu.js'%}"></script>
+</body>
+
+</html>
