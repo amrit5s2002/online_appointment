@@ -10,5 +10,6 @@ urlpatterns = [
     path('login/',login,name='loginpage'),
     path('profile/',profile,name='profilepage'),
     path('make_app/',MakeAppointments,name='appointment_make'),
+    path('view_app/',viewappointments,name='view_appointments'),
     
 ]

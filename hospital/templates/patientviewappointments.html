@@ -1,53 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>export2</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/back-to-top-scroll-1.css">
-    <link rel="stylesheet" href="assets/css/back-to-top-scroll.css">
-    <link rel="stylesheet" href="assets/css/Bold-BS4-Animated-Back-To-Top.css">
-    <link rel="stylesheet" href="assets/css/cards.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
-    <link rel="stylesheet" href="assets/css/Sidebar-Menu-1.css">
-    <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-     <link rel = "stylesheet"
-         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-      <!--<link rel = "stylesheet"
-         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">-->
-      <script type = "text/javascript"
-         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-      </script>
-</head>
-
+{% block content %}
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-primary float-none">
-        <div class="container-fluid"><img src="assets/img/mainicon.png" width="30px" height="30px" alt="10px"><a class="navbar-brand text-center" href="#" style="margin: 0px 0px;">HOSPITAL SYSTEM</a>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav text-light ml-auto">
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li> <a href="#" style="/*color: white;*/">Home</a></li>
                 <li> <a href="#" style="/*color: white;*/">Profile</a></li>
                 <li> <a href="#" style="/*color: white;*/">Make Appointments</a></li>
-                <li> <a href="#" style="color: white;">View Appointments</a></li>
+                <li> <a href="{% url 'view_appointments' %}" style="color: white;">View Appointments</a></li>
                 <li> <a href="#">View Prescription</a></li>
                 <li> <a href="#">Bills</a></li>
                 <li> <a href="#">Logout</a></li>
@@ -137,12 +98,7 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/back-to-top-scroll.js"></script>
-    <script src="assets/js/Bold-BS4-Animated-Back-To-Top.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/Sidebar-Menu.js"></script>
 </body>
+{% endblock content %}
 
-</html>
+    
