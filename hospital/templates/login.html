@@ -2,17 +2,33 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
+{% ifequal error 'no' %}
+<script>
+alert('login successfully')
+window.location = "{% url 'homepage' %}"
+</script>
+{% endifequal %}
+{% ifequal error 'yes' %}
+<script>
+alert('login unsuccessfully')
+</script>
+{% endifequal %}
+
 <body>
-    <div class="login-dark" style="background-image: url(&quot;assets/img/star-sky.jpg&quot;);">
-        <form method="post">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a
-                class="forgot" href="#">New user? Create Account</a>
+    <div class="container py-5">
+        <h1>Login</h1>
+        <form method = 'POST'>
+          {% csrf_token %}
+          <label for="fname">Username:</label><br>
+          <input type="text" class="form-control" name="uname" ><br>
+          <label for="lname">password:</label><br>
+          <input type="password" class="form-control" name="pwd" ><br><br>
+          <input type="submit" value="login" class="form-comtrol btn btn-primary">
         </form>
-    </div>
+        <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+        <p class="text-center">Forget password? <a href="password/password_reset.html">change password</a>.</p>
+      </div>
 </body>
 {% endblock content %}
