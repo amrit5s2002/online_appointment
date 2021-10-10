@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li> <a href="homepage/" style= "color: white;">Home</a></li>
+                <li> <a href="profile/">Profile</a></li>
+                <li> <a href="make_app/">Make Appointments</a></li>
+                <li> <a href="view_app/">View Appointments</a></li>
+                <li> <a href="logoutpage/">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>    
+    <div class="page-content-wrapper ">
+            {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+                
+                <div class="row register-form">
+                    <div class="col-md-9 offset-md-2">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-3">Make Appointment</legend>
+                                {{ appointment_form|crispy }}
+                            </fieldset>
+                            <div class="form-">
+                                <button class="btn btn-outline-info" type="submit">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-arrow-circle-up"></i></span></div>
+{% endblock content %}

@@ -5,7 +5,6 @@
     {% load static%}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>export2</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css'%}">
     <link rel="stylesheet" href="{% static 'fonts/ionicons.min.css'%}">
@@ -27,7 +26,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-primary">
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
         <div class="container-fluid"><img src="assets/img/mainicon.png" width="30px" height="30px" alt="10px"><a
                 class="navbar-brand text-center" href="#" style="margin: 0px 0px;">HOSPITAL SYSTEM</a><button
                 data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
@@ -39,18 +38,18 @@
                     {% if user.is_authenticated %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">LOGOUT</a>
+                        <a class="nav-link" href="logout/">LOGOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+                        <a class="nav-link" href="profile/">Welcome, {{user.username}}</a>
                     </li>
 
                     {% else %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">LOGIN</a>
+                        <a class="nav-link" href="login/">LOGIN</a>
                     </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href='#'>CREATE ACCOUNT</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href='register'>CREATE ACCOUNT</a></li>
 
                     {% endif %}
                 </ul>

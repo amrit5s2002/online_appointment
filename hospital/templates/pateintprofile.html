@@ -3,69 +3,88 @@
 {% block content %}
 
 <body>
+    
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li> <a href="#" style="/*color: white;*/">Home</a></li>
-                <li> <a href="#" style="color: white;">Profile</a></li>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#}">Profile</a></li>
                 <li> <a href="#">Make Appointments</a></li>
                 <li> <a href="#">View Appointments</a></li>
-                <li> <a href="#">View Prescription</a></li>
-                <li> <a href="#">Bills</a></li>
                 <li> <a href="#">Logout</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper">
-            <div class="container-fluid"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i
-                        class="fa fa-bars"></i></a>
                 <div class="row register-form">
                     <div class="col-md-8 offset-md-2">
-                        {% for d in patient_detail %}
                         <form class="custom-form" style="margin-top: 0px;">
                             <h1>Your Profile</h1>
+                            
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="name-input-field">Name </label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                              
+                                {% if user.is_authenticated %}
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="name-input-field">Name </label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <input class="form-control" type="text" value = "{{user.username}}"readonly="">
+                                </div>
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="email-input-field">Email </label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="email-input-field">Email </label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <input class="form-control" type="email"  value = "{{user.email}}" readonly="">
+                                </div>
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="dropdown-input-field">Gender</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="dropdown-input-field">Gender</label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <input class="form-control" type="text"  value = "{{user.gender}}"  readonly="">
+                                </div>
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="name-input-field">Phone Number</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="name-input-field">Phone Number</label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <input class="form-control" type="text"  value = "{{user.phonenumber}}"  readonly="">
+                                </div>
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="name-input-field">Address</label></div>
-                                <div class="col-sm-6 input-column"><textarea class="form-control"></textarea></div>
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="name-input-field">Address</label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <textarea class="form-control" readonly=""></textarea>
+                                </div>
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="name-input-field">Birth Date</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="name-input-field">Birth Date</label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <input class="form-control" type="text" value="{{ user.birthdate }}" readonly="">
+                                </div>
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 label-column"><label class="col-form-label"
-                                        for="name-input-field">Blood Group</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                                <div class="col-sm-4 label-column">
+                                    <label class="col-form-label" for="name-input-field">Blood Group</label>
+                                </div>
+                                <div class="col-sm-6 input-column">
+                                    <input type="text" class="form-control"  readonly="">
+                                </div>
                             </div>
-                            {% endfor %}
-
-                        </form>
+                                {%endif%}   </form>
+                        
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>
+    </div
 
 </body>
 {% endblock content %}

@@ -1,34 +1,18 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block content %}
+{% block content %}      
 
 {% load crispy_forms_tags %}
 
-{% ifequal error 'no' %}
-<script>
-alert('login successfully')
-window.location = "{% url 'homepage' %}"
-</script>
-{% endifequal %}
-{% ifequal error 'yes' %}
-<script>
-alert('login unsuccessfully')
-</script>
-{% endifequal %}
+<!--Login--> 
+<div class="container py-7">
+  <form method="POST" class="text-center">
+    <h1>Login</h1>
+    {% csrf_token %}
+    {{ login_form|crispy }}
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+  <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+</div>
 
-<body>
-    <div class="container py-5">
-        <h1>Login</h1>
-        <form method = 'POST'>
-          {% csrf_token %}
-          <label for="fname">Username:</label><br>
-          <input type="text" class="form-control" name="uname" ><br>
-          <label for="lname">password:</label><br>
-          <input type="password" class="form-control" name="pwd" ><br><br>
-          <input type="submit" value="login" class="form-comtrol btn btn-primary">
-        </form>
-        <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
-        <p class="text-center">Forget password? <a href="password/password_reset.html">change password</a>.</p>
-      </div>
-</body>
 {% endblock content %}

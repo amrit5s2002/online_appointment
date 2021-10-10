@@ -5,96 +5,94 @@
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li> <a href="#" style="/*color: white;*/">Home</a></li>
-                <li> <a href="#" style="/*color: white;*/">Profile</a></li>
-                <li> <a href="#" style="/*color: white;*/">Make Appointments</a></li>
-                <li> <a href="{% url 'view_appointments' %}" style="color: white;">View Appointments</a></li>
-                <li> <a href="#">View Prescription</a></li>
-                <li> <a href="#">Bills</a></li>
-                <li> <a href="#">Logout</a></li>
+                <li> <a href="homepage/" style= "color: white;">Home</a></li>
+                <li> <a href="profile/">Profile</a></li>
+                <li> <a href="make_app/">Make Appointments</a></li>
+                <li> <a href="view_app/">View Appointments</a></li>
+                <li> <a href="logoutpage/">Logout</a></li>
             </ul>
         </div>
+
+    </div>   
         <div class="page-content-wrapper">
-            <div class="container-fluid"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i class="fa fa-bars"></i></a>
+    
                 <h2 class="text-center">UPCOMING APPOINTMENTS</h2>
                 <div class="text-center" role="tablist" id="accordion-1">
                     <ul class="collapsible popout text-center" data-collapsible="accordion">
                     <li class="card">
                         <div class="card-header collapsible-header">
-                            <h5 style="color:blue;"><a><i class="fa fa-calendar-check-o"></i>Heading</a></h5>
+                            
                         </div>
+                
+                
+                        {% for i in upcoming_appointments %}
+                          
+                        
                         <div class = "card-body collapsible-body">
                                 <table align="center" class="card-text" style="font-size: 19px;">
                                     <tr>
                                         <td>Doctor Name:</td>
-                                        <td>doctorname</td>
+                                        <td>{{i.doctorname}}</td>
                                     </tr>
                                     <tr>
                                         <td>Patient Name:</td>
-                                        <td>patient name</td>
+                                        <td>{{user.username}}</td>
                                     </tr>
                                     <tr>
                                         <td>Appointment Date:</td>
-                                        <td>appointmentdate</td>
+                                        <td>{{i.appointmentdate}}</td>
                                     </tr>
                                     <tr>
                                         <td>Appointment Time:</td>
-                                        <td>appointment time</td>
+                                        <td>{{i.appointmenttime}}</td>
                                     </tr>
                                     <tr>
                                         <td>Symptoms:</td>
-                                        <td>symptoms</td>
+                                        <td>{{i.symptoms}}</td>
                                     </tr> 
-                                    <tr>
-                                        <td>Delete Appointment:</td>
-                                        <td><a href="#" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a></td>
-                                    </tr>
                                 </table>
                             </div>
                     </li>
                     
                 </ul>
                     
-                    
+                {% endfor %}
                 </div>
-                <h2 class="text-center">PREVIOUS APPIONTMENTS</h2>
+                <h2 class="text-center">PREVIOUS APPOINTMENTS</h2>
                 <div class="text-center" role="tablist" id="accordion-2">
                    <ul class = "collapsible popout text-center" data-collapsible = "accordion">
                         <li class="card">
                             <div class = "card-header collapsible-header">
-
-                                <h5 style="color:blue;"><a><i class="fa fa-calendar-check-o"></i>heading</a></h5>
                             </div>
+                                {% for i in previous_appointments %}
                             <div class = "card-body collapsible-body">
                                 <table align="center" class="card-text" style="font-size: 19px;">
                                     <tr>
                                         <td>Doctor Name:</td>
-                                        <td>doctorname</td>
+                                        <td>{{i.doctorname}}</td>
                                     </tr>
                                     <tr>
                                         <td>Patient Name:</td>
-                                        <td>patientname</td>
+                                        <td>{{user.username}}</td>
                                     </tr>
                                     <tr>
                                         <td>Appointment Date:</td>
-                                        <td>appointmentdate</td>
+                                        <td>{{i.appointmentdate}}</td>
                                     </tr>
                                     <tr>
                                         <td>Appointment Time:</td>
-                                        <td>appointmenttime</td>
+                                        <td>{{i.appointmenttime}}</td>
                                     </tr>
                                     <tr>
                                         <td>Symptoms:</td>
                                         <td>symptoms</td>
                                     </tr>
-                                    <tr>
-                                        <td>Prescription:</td>
-                                        <td>prescription</td>
-                                    </tr>
+                                    
                                 </table>
                             </div>
                         </li>
                     </ul> 
+                    {% endfor %}
             </div>
         </div>
     </div>

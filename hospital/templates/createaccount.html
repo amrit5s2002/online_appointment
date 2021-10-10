@@ -1,16 +1,41 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
- 
+<!-- <style>
+
+                .helptext{
+                  visibility: hidden;
+                }
+                
+                </style> -->
 <body>
-    <div class="container py-5">
-        <h1>Register</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ register_form }}                    
-            <button class="btn btn-primary" type="submit">Register</button>
-        </form>
-        <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+        <div class="page-content-wrapper ">
+            {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+                
+                <div class="row register-form">
+                    <div class="col-md-9 offset-md-2">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-3">Join Today</legend>
+                                {{ user_form|crispy }}
+                                {{ patient_form|crispy }}
+                            </fieldset>
+                            <div class="form-">
+                                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
+    <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-arrow-circle-up"></i></span></div>
 {% endblock content %}

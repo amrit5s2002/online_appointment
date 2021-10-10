@@ -7,9 +7,11 @@ urlpatterns = [
     path('',index,name='index'),
     path('about/',about,name='aboutpage'),
     path('home/',pat_home,name='homepage'),
-    path('login/',login,name='loginpage'),
+    path('reg/',register,name='createaccount'),
+    path('login/',login_auth,name='loginpage'),
     path('profile/',profile,name='profilepage'),
-    path('make_app/',MakeAppointments,name='appointment_make'),
+    path('make_app/',MakeAppointmentWithForm,name='appointment_make'),
     path('view_app/',viewappointments,name='view_appointments'),
+    path('logout/',logout_view,name='logoutpage'),
     
 ]
